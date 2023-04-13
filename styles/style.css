@@ -1,0 +1,60 @@
+
+
+#layout{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: "workbench exit";
+    column-gap: 2rem;
+}
+
+html{
+    color: #4c7faf;
+}
+
+textarea{
+    border-color: #4c7faf;
+    border-radius: 1.2rem;
+    resize: none;
+    width: 15rem;
+    height: 20rem;
+}
+
+button{
+    border-radius: 12px;
+    background-color: white;
+    color: #4c7faf;
+    border: 2px solid #4c7faf;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 10rem;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #4c7faf; /* Green */
+    color: white;
+}
+
+#workbench{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#exit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+

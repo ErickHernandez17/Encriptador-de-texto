@@ -1,0 +1,140 @@
+<html>
+
+    <head>
+        <title>Encriptador</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    
+    <body>
+
+        <nav>
+
+
+
+        </nav>
+
+        
+        
+        <div id="layout">
+            <div id="workbench">
+                <h3>Mensaje</h3>
+                <textarea id="entrada"></textarea><br>
+    
+                <div name="btnarea">
+                    <button onclick="encriptar()" name="btnW">Encriptar</button><br>
+                    <button onclick="desencriptar()" name="btnW">Desencriptar</button>
+                </div>
+    
+            </div>
+
+            <div id="exit">
+                <h3>salida</h3>
+                <textarea id="salida" disabled="true"></textarea><br>
+                <button onclick="copyText()">Copy</button>
+            </div>
+
+        </div>
+        
+        
+        
+
+
+        <footer>
+            By Erick Edwin Hernandez Macias
+        </footer>
+
+        
+        
+
+        <script>
+
+            const vowels = ["a","e","i","o","u"];
+            const translate = ["ai","enter","imes","ober","ufat"]
+            var string = "";
+      
+
+
+            function getValue(){
+                let entrada = document.getElementById("entrada").value;
+                return entrada;
+            }
+
+
+            function clean(){
+                let entrada = document.getElementById("entrada").value = '';
+            }
+
+
+            function send(string){
+                const salida = document.getElementById("salida").value = string;
+            }
+
+
+            function encriptar(){
+                let messaje = getValue();
+                const charArray = Array.from(messaje);
+                for(let x = 0; x < charArray.length; x++){
+                    for(let y = 0; y < vowels.length; y++){
+                        if(charArray[x] == vowels[y]){
+                            switch (y) {
+                                case 0:
+                                    charArray[x] = "ai";
+                                    break;
+                            
+                                case 1:
+                                    charArray[x] = "enter";
+                                    break;
+
+                                case 2:
+                                    charArray[x] = "imes";
+                                    break;
+
+                                case 3:
+                                    charArray[x] = "ober";
+                                    break;
+
+                                case 4:
+                                    charArray[x] = "ufat";
+                                    break;
+                            }
+                        }
+                    }
+                    string = string + charArray[x];
+                }
+                clean();
+                send(string);
+
+            }
+
+
+            function desencriptar(){
+                let messaje = getValue();
+    
+                messaje = messaje.replace(/ai/g,"a");
+                messaje = messaje.replace(/enter/g,"e");
+                messaje = messaje.replace(/imes/g,"i");
+                messaje = messaje.replace(/ober/g,"o");
+                messaje = messaje.replace(/ufat/g,"u");
+
+                clean();
+                send(messaje);
+            }
+
+
+            function copyText(){
+                navigator.clipboard.writeText(string).then(() => {
+                    alert("mensaje copiado")
+                }).catch(err => {
+                    alert("Error al copiar")
+                });
+                
+            }
+
+
+
+
+        </script>
+
+    </body>
+    
+</html>
